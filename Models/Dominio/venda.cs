@@ -17,8 +17,11 @@ namespace aplicacaoalmirtrabalho.Models.Dominio
         public int Id { get; set; }
 
         //jogos
+        public ICollection<jogos> jogos { get; set; }
 
         //usuario
+        public ICollection<usuario> usuarios { get; set; }
+
 
         [DisplayName("Preço total")]
         [Required(ErrorMessage = "Campo preco total de jogo é obrigatório")]

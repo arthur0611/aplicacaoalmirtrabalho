@@ -32,5 +32,8 @@ namespace aplicacaoalmirtrabalho.Models.Dominio
         [DisplayName("Quantidade")]
         [Required(ErrorMessage = "Campo quantidade de jogo é obrigatório")]
         public string quantidade { get; set; }
+
+        //empresa
+        public ICollection<empresa> empresas { get; set; }
     }
 }
