@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace aplicacaoalmirtrabalho.Models.Mapeamento
 {
-    public class EmpresaMap
+    public class EmpresaMap : IEntityTypeConfiguration<empresa>
     {
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<empresa> builder)
         {

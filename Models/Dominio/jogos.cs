@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace aplicacaoalmirtrabalho.Models.Dominio
 {
+
+    [Table("jogos")]
     public class jogos
     {
         [Key]
@@ -31,9 +33,14 @@ namespace aplicacaoalmirtrabalho.Models.Dominio
 
         [DisplayName("Quantidade")]
         [Required(ErrorMessage = "Campo quantidade de jogo é obrigatório")]
-        public string quantidade { get; set; }
+        public int quantidade { get; set; }
 
         //empresa
-        public ICollection<empresa> empresas { get; set; }
+        [Display(Name = "empresa")]
+        public empresa empresas { get; set; }
+        [ForeignKey("empresa")]
+        public int empresaID { get; set; }
+
+        public ICollection<venda> venda { get; set; }
     }
 }

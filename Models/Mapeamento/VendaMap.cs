@@ -7,17 +7,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace aplicacaoalmirtrabalho.Models.Mapeamento
 {
-    public class VendaMap
+    public class VendaMap : IEntityTypeConfiguration<venda>
     {
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<venda> builder)
         {
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).ValueGeneratedOnAdd();
-            builder.Property(p => p.precototal).HasMaxLength(25).IsRequired();
+            builder.Property(p => p.precototal).HasColumnType("float").IsRequired();
             builder.Property(p => p.cffc).HasMaxLength(25).IsRequired();
          
-            builder.HasOne(p => p.usuarios).WithMany(p => p.vendas).HasForeignKey(p => p.usuarioID).OnDelete(DeleteBehavior.NoAction);
-            builder.HasOne(p => p.jogos).WithMany(p => p.vendas).HasForeignKey(p => p.jogosID).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(p => p.usuarios).WithMany(p => p.venda).HasForeignKey(p => p.usuarioID).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(p => p.jogo).WithMany(p => p.venda).HasForeignKey(p => p.jogosID).OnDelete(DeleteBehavior.NoAction);
 
 
             builder.ToTable("Vendas");

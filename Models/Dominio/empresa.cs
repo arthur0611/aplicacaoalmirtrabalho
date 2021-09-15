@@ -21,5 +21,7 @@ namespace aplicacaoalmirtrabalho.Models.Dominio
         [DisplayName("Nome")]
         [Required(ErrorMessage = "Campo nome da Empresa é obrigatório")]
         public string Nome { get; set; }
+
+        public ICollection<jogos> jogos { get; set; }
     }
 }
